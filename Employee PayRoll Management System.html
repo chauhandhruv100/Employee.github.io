@@ -1,0 +1,120 @@
+<html>
+    <style>
+        h1 {text-align: center;}
+        p {text-align: center;}
+        div {text-align: center;}
+        label {color: red; 
+            text-align: center;
+            font-size:18px;}
+        </style>
+    <head>
+        <css><link rel="stylesheet" href="style.css"></css>
+    </head>
+
+    <script>
+        function resetForm() {
+            document.getElementById("myForm").reset();
+        }
+
+        function ErrorCheck()
+        {
+            var count = 0;
+
+            var x=document.forms["myForm"]["id"].value;
+            if (isNaN(x)) 
+            {
+                window.alert("Must input numbers for ID");
+                count++;
+                return false;
+            }
+            else{
+                count = 0;
+            }
+
+            var y =document.forms["myForm"]["name"].value;
+            var regex=/^[a-zA-Z]+$/;
+            if (!y.match(regex))
+            {
+                window.alert("Must input string for Employee Name");
+                count++;
+                return false;
+            }
+            else{
+                count = 0;
+            }
+
+            var z =document.forms["myForm"]["qualification"].value;
+            var regex=/^[a-zA-Z]+$/;
+            if (!z.match(regex) && isNaN(z))
+            {
+                window.alert("Must input string or number for Qualification");
+                count++;
+                return false;
+            }
+            else{
+                count = 0;
+            }
+
+            var a=document.forms["myForm"]["salary"].value;
+            if (isNaN(a)) 
+            {
+                window.alert("Must input numbers for Salary");
+                count++;
+                return false;
+            }
+            else{
+                count = 0;
+            }
+
+            if(count==0)
+            {
+                window.location.replace("Congrats.html");
+            }
+        }
+    </script>
+
+<body class="backcolor">
+
+  <main>
+  <header>
+    <h1 style="color:blue; font-size:55px;">ADD NEW EMPLOYEE</h1>
+  </header>
+  
+  <form  method="post" id="myForm">
+  <div class="form">
+
+    <label for="id">Employee Id</label>
+    <input type="number" id="id" name="id"> <br><br><br>
+  
+    <label for="name">Employee Name</label>
+    <input type="text" id="name" name="name"> <br><br><br>
+  
+    <label for="qualification">Qualification</label>
+    <input type="text" id="qualification" name="qualification"> <br><br><br>
+  
+    <label for="Designation">Designation</label>
+    <select id="Designation" name="Designation">
+      <option value="SalesBoy">SalesBoy</option>  
+      <option value="Manager">Manager</option>
+      <option value="SalesGirl">SalesGirl</option>
+      <option value="Other">Other</option> 
+    </select>   <br><br><br>
+  
+    <label for="salary">Salary</label>
+    <input type="number" id="salary" name="salary"> <br><br><br>
+
+    </form>
+  
+    <div class="center">
+      <div class="btn-group">
+          <button class="button" type="submit" onclick="ErrorCheck();">Add Record</button>
+          <button class="button" type="button" onclick="resetForm();">Exit</button>
+        </div>
+    </div>
+    
+   </div>
+   
+  
+  </main>
+</body>
+</html>
